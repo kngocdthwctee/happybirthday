@@ -54,14 +54,14 @@ document.getElementById('hedgehog-main').addEventListener('click', () => {
 function playHedgehogMessage() {
     const speechBubble = document.getElementById('hedgehog-speech');
     const randomMessage = hedgehogMessages[Math.floor(Math.random() * hedgehogMessages.length)];
-    
+
     speechBubble.style.animation = 'none';
     speechBubble.textContent = randomMessage;
-    
+
     setTimeout(() => {
         speechBubble.style.animation = 'speechBubble 2s ease-in-out infinite';
     }, 100);
-    
+
     // setTimeout(() => {
     //     speechBubble.textContent = 'Nhấp vào nhím con để nghe lời chúc! 💕';
     // }, 4000);
@@ -78,9 +78,9 @@ function blowCandle(candle, e) {
     if (!candle.classList.contains('blown-out')) {
         candle.classList.add('blown-out');
         candlesBlown++;
-        
+
         const message = document.getElementById('cake-message');
-        
+
         if (candlesBlown === 3) {
             message.textContent = '🎉 Mẹ đã thổi hết nến rồi! Ước gì sẽ thành hiện thực! ✨';
             createFloatingHearts();
@@ -92,7 +92,7 @@ function blowCandle(candle, e) {
             const remaining = 3 - candlesBlown;
             message.textContent = `💨 Còn ${remaining} ngọn nến nữa mẹ nhé! 🕯️`;
         }
-        
+
         createHeartBurst(e.clientX, e.clientY);
         playBlowSound();
     }
@@ -102,16 +102,16 @@ function playBlowSound() {
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
     const oscillator = audioContext.createOscillator();
     const gainNode = audioContext.createGain();
-    
+
     oscillator.connect(gainNode);
     gainNode.connect(audioContext.destination);
-    
+
     oscillator.frequency.setValueAtTime(200, audioContext.currentTime);
     oscillator.frequency.exponentialRampToValueAtTime(50, audioContext.currentTime + 0.5);
-    
+
     gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
     gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-    
+
     oscillator.start(audioContext.currentTime);
     oscillator.stop(audioContext.currentTime + 0.5);
 }
@@ -135,7 +135,7 @@ document.getElementById('party-btn').addEventListener('click', () => {
 function addLove() {
     loveCount++;
     document.getElementById('love-count').textContent = loveCount;
-    
+
     if (loveCount === 10) {
         showSpecialMessage("🎉 Wow! 10 lần yêu thương rồi! Mẹ thật đặc biệt! 🎉");
     } else if (loveCount === 25) {
@@ -165,28 +165,32 @@ function showSpecialMessage(message) {
         border: 3px solid white;
     `;
     specialDiv.textContent = message;
-    
+
     document.body.appendChild(specialDiv);
-    
+
     setTimeout(() => {
         document.body.removeChild(specialDiv);
     }, 3000);
 }
 
+var isSurpriseShowed = false;
+
 // SURPRISE FUNCTIONS
 function showSurprise() {
     const giftSection = document.getElementById('gift-section');
     giftSection.style.display = 'block';
-    
+
     setTimeout(() => {
         document.getElementById('gift-cute').click();
     }, 1000);
-    
-    setTimeout(() => {
-        const photoGallery = document.getElementById('photo-gallery');
-        photoGallery.style.display = 'block';
-        photoGallery.scrollIntoView({ behavior: 'smooth' });
-    }, 3000);
+    if (!isSurpriseShowed) {
+        isSurpriseShowed = true;
+        setTimeout(() => {
+            const photoGallery = document.getElementById('photo-gallery');
+            photoGallery.style.display = 'block';
+            photoGallery.scrollIntoView({ behavior: 'smooth' });
+        }, 3000);
+    }
 }
 
 document.getElementById('gift-cute').addEventListener('click', () => {
@@ -201,7 +205,7 @@ document.getElementById('gift-cute').addEventListener('click', () => {
 // MUSIC SYSTEM
 function toggleCuteMusic() {
     const musicBtn = document.getElementById('music-btn');
-    
+
     if (musicPlaying) {
         stopCuteMusic();
         musicBtn.innerHTML = '<span class="btn-icon">🎵</span><span class="btn-text">Nhạc sinh nhật</span>';
@@ -226,19 +230,19 @@ function stopCuteMusic() {
 // PARTY MODE
 function startCutePartyMode() {
     if (isCutePartyMode) return;
-    
+
     isCutePartyMode = true;
     const partyBtn = document.getElementById('party-btn');
     partyBtn.innerHTML = '<span class="btn-icon">🎊</span><span class="btn-text">Đang tiệc!</span>';
     partyBtn.disabled = true;
-    
+
     createFloatingHearts();
     createConfetti();
     createHedgehogRain();
     createSparkleEffect();
-    
+
     // showSpecialMessage("🎉 TIỆC NHÍM BẮT ĐẦU! 🦔💕 HAPPY BIRTHDAY MẸ! 🎂✨");
-    
+
     setTimeout(() => {
         isCutePartyMode = false;
         partyBtn.innerHTML = '<span class="btn-icon">🎉</span><span class="btn-text">Tiệc nhím!</span>';
@@ -250,7 +254,7 @@ function startCutePartyMode() {
 function createFloatingHearts() {
     const heartsContainer = document.getElementById('hearts');
     const heartTypes = ['💕', '💖', '💗', '💝', '💘', '💞'];
-    
+
     for (let i = 0; i < 15; i++) {
         setTimeout(() => {
             const heart = document.createElement('div');
@@ -260,9 +264,9 @@ function createFloatingHearts() {
             heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
             heart.style.animationDelay = Math.random() * 2 + 's';
             heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
-            
+
             heartsContainer.appendChild(heart);
-            
+
             setTimeout(() => {
                 if (heart.parentNode) {
                     heart.parentNode.removeChild(heart);
@@ -286,17 +290,17 @@ function createHeartBurst(x, y) {
             animation: heartBurst 1s ease-out forwards;
             transform-origin: center;
         `;
-        
+
         heart.style.setProperty('--angle', i * 45 + 'deg');
         document.body.appendChild(heart);
-        
+
         setTimeout(() => {
             if (heart.parentNode) {
                 heart.parentNode.removeChild(heart);
             }
         }, 1000);
     }
-    
+
     if (!document.getElementById('heart-burst-style')) {
         const style = document.createElement('style');
         style.id = 'heart-burst-style';
@@ -319,7 +323,7 @@ function createHeartBurst(x, y) {
 function createConfetti() {
     const confettiContainer = document.getElementById('confetti');
     const confettiTypes = ['🎊', '🎉', '🌸', '✨', '💖', '🦔', '🎂', '🎈'];
-    
+
     for (let i = 0; i < 30; i++) {
         setTimeout(() => {
             const confetti = document.createElement('div');
@@ -329,9 +333,9 @@ function createConfetti() {
             confetti.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
             confetti.style.animationDuration = (Math.random() * 3 + 3) + 's';
             confetti.style.animationDelay = Math.random() * 2 + 's';
-            
+
             confettiContainer.appendChild(confetti);
-            
+
             setTimeout(() => {
                 if (confetti.parentNode) {
                     confetti.parentNode.removeChild(confetti);
@@ -343,7 +347,7 @@ function createConfetti() {
 
 function createHedgehogRain() {
     const hedgehogContainer = document.getElementById('hedgehog-rain');
-    
+
     for (let i = 0; i < 10; i++) {
         setTimeout(() => {
             const hedgehog = document.createElement('div');
@@ -352,9 +356,9 @@ function createHedgehogRain() {
             hedgehog.style.left = Math.random() * 100 + '%';
             hedgehog.style.animationDuration = (Math.random() * 5 + 5) + 's';
             hedgehog.style.animationDelay = Math.random() * 3 + 's';
-            
+
             hedgehogContainer.appendChild(hedgehog);
-            
+
             setTimeout(() => {
                 if (hedgehog.parentNode) {
                     hedgehog.parentNode.removeChild(hedgehog);
@@ -367,7 +371,7 @@ function createHedgehogRain() {
 function createSparkleEffect() {
     const sparklesContainer = document.getElementById('sparkles');
     const sparkleTypes = ['✨', '⭐', '🌟', '💫'];
-    
+
     for (let i = 0; i < 20; i++) {
         const sparkle = document.createElement('div');
         sparkle.className = 'sparkle';
@@ -376,9 +380,9 @@ function createSparkleEffect() {
         sparkle.style.top = Math.random() * 100 + '%';
         sparkle.style.animationDelay = Math.random() * 4 + 's';
         sparkle.style.animationDuration = (Math.random() * 2 + 3) + 's';
-        
+
         sparklesContainer.appendChild(sparkle);
-        
+
         setTimeout(() => {
             if (sparkle.parentNode) {
                 sparkle.parentNode.removeChild(sparkle);
@@ -389,7 +393,7 @@ function createSparkleEffect() {
 
 // KEYBOARD SHORTCUTS
 document.addEventListener('keydown', (e) => {
-    switch(e.key.toLowerCase()) {
+    switch (e.key.toLowerCase()) {
         case 'h':
             document.getElementById('hedgehog-main').click();
             break;
@@ -452,9 +456,9 @@ function showRandomCuteMessage() {
         text-align: center;
     `;
     messageElement.textContent = message;
-    
+
     document.body.appendChild(messageElement);
-    
+
     setTimeout(() => {
         if (messageElement.parentNode) {
             messageElement.parentNode.removeChild(messageElement);
@@ -466,7 +470,7 @@ function showRandomCuteMessage() {
 function checkIfBirthdayToday() {
     const today = new Date();
     const isBirthday = today.getMonth() === 8 && today.getDate() === 9;
-    
+
     if (isBirthday) {
         setTimeout(() => {
             showSpecialMessage("🎉 HÔM NAY LÀ SINH NHẬT MẸ! 🎂 CHÚC MỪNG MẸ NHÍM YÊU! 🦔💕");
@@ -480,11 +484,11 @@ function checkIfBirthdayToday() {
 document.addEventListener('touchstart', (e) => {
     const touch = e.touches[0];
     const element = document.elementFromPoint(touch.clientX, touch.clientY);
-    
+
     if (element && element.onclick) {
         element.click();
     }
-    
+
     createHeartBurst(touch.clientX, touch.clientY);
 });
 
@@ -493,11 +497,11 @@ function initializeCuteAnimations() {
     setInterval(createFloatingHearts, 8000);
     setInterval(showRandomCuteMessage, 25000);
     checkIfBirthdayToday();
-    
+
     setTimeout(() => {
         showSpecialMessage("🦔💕 Chào mừng đến bữa tiệc sinh nhật của mẹ nhím! 💕🦔");
     }, 2000);
-    
+
     addCuteAnimationStyles();
 }
 
