@@ -236,7 +236,6 @@ function startCutePartyMode() {
     createConfetti();
     createHedgehogRain();
     createSparkleEffect();
-    partyModePulse();
     
     showSpecialMessage("🎉 TIỆC NHÍM BẮT ĐẦU! 🦔💕 HAPPY BIRTHDAY MẸ! 🎂✨");
     
@@ -245,19 +244,6 @@ function startCutePartyMode() {
         partyBtn.innerHTML = '<span class="btn-icon">🎉</span><span class="btn-text">Tiệc nhím!</span>';
         partyBtn.disabled = false;
     }, 20000);
-}
-
-function partyModePulse() {
-    let counter = 0;
-    const interval = setInterval(() => {
-        document.body.style.filter = `hue-rotate(${counter * 15}deg) brightness(${1 + Math.sin(counter * 0.2) * 0.3})`;
-        counter++;
-        
-        if (counter > 200 || !isCutePartyMode) {
-            clearInterval(interval);
-            document.body.style.filter = 'none';
-        }
-    }, 100);
 }
 
 // ANIMATION FUNCTIONS
@@ -476,24 +462,6 @@ function showRandomCuteMessage() {
     }, 5000);
 }
 
-// BIRTHDAY COUNTDOWN
-function updateBirthdayCountdown() {
-    const now = new Date();
-    const currentYear = now.getFullYear();
-    let nextBirthday = new Date(currentYear, 8, 9);
-    
-    if (nextBirthday < now) {
-        nextBirthday = new Date(currentYear + 1, 8, 9);
-    }
-    
-    const timeUntil = nextBirthday - now;
-    const daysUntil = Math.ceil(timeUntil / (1000 * 60 * 60 * 24));
-    
-    if (daysUntil > 0) {
-        console.log(`🦔 Còn ${daysUntil} ngày nữa đến sinh nhật mẹ nhím! 💕`);
-    }
-}
-
 // SPECIAL BIRTHDAY FEATURES
 function checkIfBirthdayToday() {
     const today = new Date();
@@ -525,7 +493,6 @@ function initializeCuteAnimations() {
     setInterval(createFloatingHearts, 8000);
     setInterval(showRandomCuteMessage, 25000);
     checkIfBirthdayToday();
-    updateBirthdayCountdown();
     
     setTimeout(() => {
         showSpecialMessage("🦔💕 Chào mừng đến bữa tiệc sinh nhật của mẹ nhím! 💕🦔");
@@ -580,11 +547,4 @@ window.addEventListener('focus', () => {
             showRandomCuteMessage();
         }, 1000);
     }
-});
-
-// FINAL INITIALIZATION
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        console.log('🌟 Mọi thứ đã sẵn sàng cho bữa tiệc sinh nhật! 🎉');
-    }, 1000);
 });
