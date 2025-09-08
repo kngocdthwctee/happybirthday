@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật Mẹ Nhím 🦔💕</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="cute-cursor" id="cursor">🦔</div>
+
+    <div class="floating-hearts" id="hearts"></div>
+    <div class="cute-confetti" id="confetti"></div>
+    <div class="hedgehog-rain" id="hedgehog-rain"></div>
+    <div class="sparkles" id="sparkles"></div>
+
+    <div class="loading-screen" id="loading">
+        <div class="hedgehog-loader">
+            <div class="hedgehog-body">🦔</div>
+            <div class="loading-dots">
+                <span>.</span>
+                <span>.</span>
+                <span>.</span>
+            </div>
+        </div>
+        <div class="loading-text">
+            Nhím con đang chuẩn bị bữa tiệc cho mẹ... 💕
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content" id="main-content" style="display: none;">
+            <div class="header-section">
+                <div class="hedgehog-crown">👑</div>
+                <div class="main-title">
+                    <span class="title-line">💕 CHÚC MỪNG SINH NHẬT 💕</span>
+                    <span class="title-mom">MẸ YÊU CỦA CON</span>
+                </div>
+                <div class="cute-decorations">
+                    <span class="deco">🌸</span>
+                    <span class="deco">🦔</span>
+                    <span class="deco">💝</span>
+                    <span class="deco">🦔</span>
+                    <span class="deco">🌸</span>
+                </div>
+            </div>
+
+            <div class="age-display-cute">
+                <div class="age-bubble">
+                    <span class="age-number" id="age-display">23</span>
+                    <span class="age-text">tuổi</span>
+                </div>
+                <div class="age-message">
+                    🎈 Mẹ nhím xinh đẹp 23 tuổi rồi! 🎈
+                </div>
+            </div>
+
+            <div class="hedgehog-container">
+                <div class="hedgehog-main" id="hedgehog-main">
+                    <div class="hedgehog-face">
+                        <div class="hedgehog-eyes">
+                            <span class="eye">👁️</span>
+                            <span class="eye">👁️</span>
+                        </div>
+                        <div class="hedgehog-body-main">🦔</div>
+                        <div class="hedgehog-blush">
+                            <span class="blush">😊</span>
+                            <span class="blush right">😊</span>
+                        </div>
+                    </div>
+                    <div class="hedgehog-speech" id="hedgehog-speech">
+                        Nhấp vào nhím con để nghe lời chúc! 💕
+                    </div>
+                </div>
+            </div>
+
+            <div class="cake-section">
+                <div class="cake-container-cute">
+                    <div class="cake-layers">
+                        <div class="cake-layer layer-1">🍰</div>
+                        <div class="cake-layer layer-2">🎂</div>
+                        <div class="cake-layer layer-3">🧁</div>
+                    </div>
+                    <div class="candles-cute" id="candles">
+                        <span class="candle-cute">🕯️</span>
+                        <span class="candle-cute">🕯️</span>
+                        <span class="candle-cute">🕯️</span>
+                    </div>
+                    <div class="cake-message" id="cake-message">
+                        💕 Thổi nến và ước nguyện nhé mẹ! 💕
+                    </div>
+                </div>
+            </div>
+
+            <div class="cute-buttons">
+                <button class="btn-cute btn-purple" id="surprise-btn">
+                    <span class="btn-icon">🎁</span>
+                    <span class="btn-text">Bất ngờ cho mẹ</span>
+                </button>
+                <button class="btn-cute btn-orange" id="music-btn">
+                    <span class="btn-icon">🎵</span>
+                    <span class="btn-text">Nhạc sinh nhật</span>
+                </button>
+                <button class="btn-cute btn-green" id="party-btn">
+                    <span class="btn-icon">🎉</span>
+                    <span class="btn-text">Tiệc nhím!</span>
+                </button>
+            </div>
+
+            <div class="love-counter">
+                <span class="counter-icon">💕</span>
+                <span class="counter-text">Tình yêu đã gửi:</span>
+                <span class="counter-number" id="love-count">0</span>
+                <span class="counter-icon">💕</span>
+            </div>
+
+            <div class="gift-section" id="gift-section" style="display: none;">
+                <div class="gift-cute" id="gift-cute">
+                    <div class="gift-box-cute">
+                        <div class="gift-lid">🎁</div>
+                        <div class="gift-ribbon">🎀</div>
+                    </div>
+                    <div class="gift-content" id="gift-content" style="display: none;">
+                        <div class="gift-message">
+                            <h3>💝 Món quà đặc biệt cho mẹ 💝</h3>
+                            <div class="gift-items">
+                                <div class="gift-item">🌹 Những bông hoa đẹp nhất</div>
+                                <div class="gift-item">🍰 Bánh sinh nhật ngọt ngào</div>
+                                <div class="gift-item">💎 Nụ cười hạnh phúc</div>
+                                <div class="gift-item">🦔 Tình yêu vô tận từ con</div>
+                                <div class="gift-item">🌟 Chúc mẹ luôn khỏe mạnh</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photo-gallery" id="photo-gallery" style="display: none;">
+                <div class="gallery-title">📸 Kỷ niệm đẹp với mẹ nhím 📸</div>
+                <div class="photo-frames">
+                    <div class="photo-frame">
+                        <img src="anh1.jpg" alt="Ảnh đầu tiên" class="photo-image">
+                        <p>Ảnh đầu tiên</p>
+                    </div>
+                    <div class="photo-frame">
+                        <img src="anh2.jpg" alt="Kỷ niệm đẹp" class="photo-image">
+                        <p>Kỷ niệm đẹp</p>
+                    </div>
+                    <div class="photo-frame">
+                        <img src="anh3.jpg" alt="Mẹ xinh đẹp" class="photo-image">
+                        <p>Mẹ xinh đẹp</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="birthday-facts">
+                <h3>🦔 Những điều đặc biệt về mẹ nhím 🦔</h3>
+                <div class="facts-grid">
+                    <div class="fact-item">
+                        <span class="fact-icon">📅</span>
+                        <span class="fact-text">Sinh ngày 9/9/2002</span>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-icon">🦔</span>
+                        <span class="fact-text">Biểu tượng: Nhím cute</span>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-icon">💕</span>
+                        <span class="fact-text">Là mẹ yêu của con</span>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-icon">⭐</span>
+                        <span class="fact-text">Cung Xử Nữ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="success-modal" id="success-modal" style="display: none;">
+        <div class="modal-content-cute">
+            <div class="modal-hedgehog">🦔💕</div>
+            <h3>Đã gửi tình yêu đến mẹ!</h3>
+            <p>Nhím con đã mang thông điệp đến với mẹ rồi! 💌</p>
+            <button class="btn-cute btn-pink" id="close-success">
+                <span class="btn-icon">✨</span>
+                <span class="btn-text">Tuyệt vời!</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
