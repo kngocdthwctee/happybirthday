@@ -62,9 +62,9 @@ function playHedgehogMessage() {
         speechBubble.style.animation = 'speechBubble 2s ease-in-out infinite';
     }, 100);
     
-    setTimeout(() => {
-        speechBubble.textContent = 'Nhấp vào nhím con để nghe lời chúc! 💕';
-    }, 4000);
+    // setTimeout(() => {
+    //     speechBubble.textContent = 'Nhấp vào nhím con để nghe lời chúc! 💕';
+    // }, 4000);
 }
 
 // CAKE INTERACTION
@@ -237,7 +237,7 @@ function startCutePartyMode() {
     createHedgehogRain();
     createSparkleEffect();
     
-    showSpecialMessage("🎉 TIỆC NHÍM BẮT ĐẦU! 🦔💕 HAPPY BIRTHDAY MẸ! 🎂✨");
+    // showSpecialMessage("🎉 TIỆC NHÍM BẮT ĐẦU! 🦔💕 HAPPY BIRTHDAY MẸ! 🎂✨");
     
     setTimeout(() => {
         isCutePartyMode = false;
