@@ -18,19 +18,13 @@ let hedgehogMessages = [
 const birthdayMusic = new Audio('happy-birthday-220024.mp3');
 birthdayMusic.loop = true;
 
-// BIRTH DATE CALCULATION
-const birthDate = new Date(2002, 8, 9);
-const today = new Date();
-const age = calculateAge(birthDate);
-
 // LOADING ANIMATION
 window.addEventListener('load', () => {
     setTimeout(() => {
         document.getElementById('loading').style.display = 'none';
         document.getElementById('main-content').style.display = 'block';
         initializeCuteAnimations();
-        updateAgeDisplay();
-    }, 4000);
+    }, 2000);
 });
 
 // CUTE CURSOR
@@ -49,33 +43,6 @@ document.addEventListener('mousedown', () => {
     createHeartBurst(mouseX, mouseY);
     setTimeout(() => cursor.classList.remove('clicked'), 200);
 });
-
-// AGE CALCULATION
-function calculateAge(birthDate) {
-    const today = new Date();
-    let years = today.getFullYear() - birthDate.getFullYear();
-    let months = today.getMonth() - birthDate.getMonth();
-    let days = today.getDate() - birthDate.getDate();
-    
-    if (days < 0) {
-        months--;
-        days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-    }
-    
-    if (months < 0) {
-        years--;
-        months += 12;
-    }
-    
-    const totalDays = Math.floor((today - birthDate) / (1000 * 60 * 60 * 24));
-    
-    return { years, months, days, totalDays };
-}
-
-function updateAgeDisplay() {
-    const ageElement = document.getElementById('age-display');
-    ageElement.textContent = age.years;
-}
 
 // HEDGEHOG INTERACTION
 document.getElementById('hedgehog-main').addEventListener('click', () => {
