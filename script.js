@@ -582,15 +582,6 @@ window.addEventListener('focus', () => {
     }
 });
 
-// CONSOLE MESSAGES
-console.log('🦔💕 Trang web sinh nhật cute cho mẹ nhím đã sẵn sàng! 💕🦔');
-console.log('🎮 Phím tắt: H=Nhím nói, L=Thêm yêu thương, C=Confetti, P=Party, M=Nhạc, S=Sparkle, Space=Thổi nến');
-console.log('🎂 Sinh nhật: 9/9/2002');
-
-const currentAge = calculateAge(birthDate);
-console.log(`💖 Tuổi hiện tại: ${currentAge.years} tuổi ${currentAge.months} tháng ${currentAge.days} ngày`);
-console.log('💖 Chúc mẹ nhím sinh nhật vui vẻ và hạnh phúc!');
-
 // FINAL INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
