@@ -11,7 +11,7 @@ let hedgehogMessages = [
     "Chúc mẹ luôn khỏe mạnh! 🌸",
     "Mẹ xứng đáng có những điều tốt đẹp nhất! 💖",
     "Con sẽ luôn bên cạnh mẹ! 🦔👶",
-    "Sinh nhật 22 tuổi thật ý nghĩa! 🎈"
+    "Sinh nhật 23 tuổi thật ý nghĩa! 🎈"
 ];
 
 // Create audio element for the birthday music
@@ -442,7 +442,7 @@ const cuteMessages = [
     "🎂 Sinh nhật vui vẻ mẹ nhím yêu!",
     "💖 Con yêu mẹ nhiều lắm!",
     "🌟 Mẹ là ngôi sao sáng nhất!",
-    "🎈 22 tuổi thật tuyệt vời!"
+    "🎈 23 tuổi thật tuyệt vời!"
 ];
 
 function showRandomCuteMessage() {
