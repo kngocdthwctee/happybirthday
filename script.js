@@ -70,11 +70,11 @@ function playHedgehogMessage() {
 // CAKE INTERACTION
 document.getElementById('candles').addEventListener('click', (e) => {
     if (e.target.classList.contains('candle-cute')) {
-        blowCandle(e.target);
+        blowCandle(e.target, e);
     }
 });
 
-function blowCandle(candle) {
+function blowCandle(candle, e) {
     if (!candle.classList.contains('blown-out')) {
         candle.classList.add('blown-out');
         candlesBlown++;
