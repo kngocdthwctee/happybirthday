@@ -4,13 +4,11 @@ let musicPlaying = false;
 let candlesBlown = 0;
 let heartsActive = false;
 let hedgehogMessages = [
-    "Mẹ là người tuyệt vời nhất! 🦔💕",
-    "Con yêu mẹ rất nhiều! 🌟",
-    "Chúc mẹ sinh nhật vui vẻ! 🎂",
-    "Mẹ nhím xinh đẹp nhất! ✨",
-    "Chúc mẹ luôn khỏe mạnh! 🌸",
-    "Mẹ xứng đáng có những điều tốt đẹp nhất! 💖",
-    "Con sẽ luôn bên cạnh mẹ! 🦔👶",
+    "NhímNhor là người tuyệt vời nhất! 🦔💕",
+    "Chúc NhímNhor sinh nhật vui vẻ! 🎂",
+    "NhímNhor xinh đẹp nhất! ✨",
+    "Chúc NhímNhor luôn khỏe mạnh! 🌸",
+    "NhímNhor xứng đáng có những điều tốt đẹp nhất! 💖",
     "Sinh nhật 23 tuổi thật ý nghĩa! 🎈"
 ];
 
@@ -82,15 +80,15 @@ function blowCandle(candle, e) {
         const message = document.getElementById('cake-message');
 
         if (candlesBlown === 3) {
-            message.textContent = '🎉 Mẹ đã thổi hết nến rồi! Ước gì sẽ thành hiện thực! ✨';
+            message.textContent = '🎉 NhímNhor đã thổi hết nến rồi! Ước gì sẽ thành hiện thực! ✨';
             createFloatingHearts();
             addLove();
             setTimeout(() => {
-                message.textContent = '💕 Chúc mẹ sinh nhật thật hạnh phúc! 💕';
+                message.textContent = '💕 Chúc NhímNhor sinh nhật thật hạnh phúc! 💕';
             }, 4000);
         } else {
             const remaining = 3 - candlesBlown;
-            message.textContent = `💨 Còn ${remaining} ngọn nến nữa mẹ nhé! 🕯️`;
+            message.textContent = `💨 Còn ${remaining} ngọn nến nữa NhímNhor nhé! 🕯️`;
         }
 
         createHeartBurst(e.clientX, e.clientY);
@@ -137,11 +135,11 @@ function addLove() {
     document.getElementById('love-count').textContent = loveCount;
 
     if (loveCount === 10) {
-        showSpecialMessage("🎉 Wow! 10 lần yêu thương rồi! Mẹ thật đặc biệt! 🎉");
+        showSpecialMessage("🎉 Wow! 10 lần yêu thương rồi! NhímNhor thật đặc biệt! 🎉");
     } else if (loveCount === 25) {
-        showSpecialMessage("💖 25 lần! Con yêu mẹ lắm lắm! 💖");
+        showSpecialMessage("💖 25 lần! Yêu NhímNhor lắm lắm! 💖");
     } else if (loveCount === 50) {
-        showSpecialMessage("🌟 50 lần rồi! Mẹ là số 1! 🌟");
+        showSpecialMessage("🌟 50 lần rồi! NhímNhor là số 1! 🌟");
     }
 }
 
@@ -189,7 +187,7 @@ function showSurprise() {
             const photoGallery = document.getElementById('photo-gallery');
             photoGallery.style.display = 'block';
             photoGallery.scrollIntoView({ behavior: 'smooth' });
-        }, 3000);
+        }, 2000);
     }
 }
 
@@ -240,8 +238,6 @@ function startCutePartyMode() {
     createConfetti();
     createHedgehogRain();
     createSparkleEffect();
-
-    // showSpecialMessage("🎉 TIỆC NHÍM BẮT ĐẦU! 🦔💕 HAPPY BIRTHDAY MẸ! 🎂✨");
 
     setTimeout(() => {
         isCutePartyMode = false;
@@ -425,13 +421,12 @@ document.addEventListener('keydown', (e) => {
 
 // AUTO CUTE MESSAGES
 const cuteMessages = [
-    "🦔 Nhím con gửi lời yêu thương đến mẹ!",
-    "💕 Mẹ là người tuyệt vời nhất!",
-    "🌸 Chúc mẹ luôn xinh đẹp như hoa!",
-    "✨ Mẹ xứng đáng có những điều tốt đẹp nhất!",
-    "🎂 Sinh nhật vui vẻ mẹ nhím yêu!",
-    "💖 Con yêu mẹ nhiều lắm!",
-    "🌟 Mẹ là ngôi sao sáng nhất!",
+    "🦔 Pun gửi lời yêu thương đến NhímNhor!",
+    "💕 NhímNhor là người tuyệt vời nhất!",
+    "🌸 Chúc NhímNhor luôn xinh đẹp như hoa!",
+    "✨ NhímNhor xứng đáng có những điều tốt đẹp nhất!",
+    "🎂 Sinh nhật vui vẻ NhímNhor!",
+    "🌟 NhímNhor là ngôi sao sáng nhất!",
     "🎈 23 tuổi thật tuyệt vời!"
 ];
 
@@ -473,7 +468,7 @@ function checkIfBirthdayToday() {
 
     if (isBirthday) {
         setTimeout(() => {
-            showSpecialMessage("🎉 HÔM NAY LÀ SINH NHẬT MẸ! 🎂 CHÚC MỪNG MẸ NHÍM YÊU! 🦔💕");
+            showSpecialMessage("🎉 HÔM NAY LÀ SINH NHẬT! 🎂 CHÚC MỪNG SINH NHẬT NhímNhor! 🦔💕");
             startCutePartyMode();
             createFloatingHearts();
         }, 5000);
@@ -499,7 +494,7 @@ function initializeCuteAnimations() {
     checkIfBirthdayToday();
 
     setTimeout(() => {
-        showSpecialMessage("🦔💕 Chào mừng đến bữa tiệc sinh nhật của mẹ nhím! 💕🦔");
+        showSpecialMessage("🦔💕 Chào mừng đến bữa tiệc sinh nhật của NhímNhor! 💕🦔");
     }, 2000);
 
     addCuteAnimationStyles();
